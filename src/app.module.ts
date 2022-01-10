@@ -4,8 +4,11 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Filter } from './filters/filter.model';
+import { UserFilters } from './filters/user-filters.model';
 import { User } from './users/user.model';
 import { UsersModule } from './users/users.module';
+import { FiltersModule } from './filters/filters.module';
 
 // const HOST = config.get('postgres_host');
 // const POSTGRES_PORT = config.get('postgres_port');
@@ -30,10 +33,12 @@ import { UsersModule } from './users/users.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User],
+      models: [User, Filter, UserFilters],
       autoLoadModels: true,
     }),
-    UsersModule,],
+    UsersModule,
+    FiltersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

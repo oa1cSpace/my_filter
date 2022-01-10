@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { BelongsToMany, Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Filter } from '../filters/filter.model';
+import { UserFilters } from '../filters/user-filters.model';
 
 interface userCreationAttributes {
   email: string;
@@ -19,4 +21,10 @@ export class User extends Model<User, userCreationAttributes> {
   @ApiProperty({example: 'P@$$w0Rd', description: 'password'})
   @Column({ type: DataType.STRING })
   password: string;
+
+  //** Tables 'users' and 'filters' have relation many to many.
+  // (One user has many filters, and the same type of filter can be used by many users)
+  // */
+  @BelongsToMany(() => Filter, () => UserFilters)
+  filters: Filter[];
 }
