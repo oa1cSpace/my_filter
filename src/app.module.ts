@@ -9,6 +9,7 @@ import { UserFilters } from './filters/user-filters.model';
 import { User } from './users/user.model';
 import { UsersModule } from './users/users.module';
 import { FiltersModule } from './filters/filters.module';
+import { RolesModule } from './roles/roles.module';
 
 // const HOST = config.get('postgres_host');
 // const POSTGRES_PORT = config.get('postgres_port');
@@ -38,6 +39,7 @@ import { FiltersModule } from './filters/filters.module';
     }),
     UsersModule,
     FiltersModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
