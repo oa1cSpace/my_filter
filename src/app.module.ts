@@ -2,11 +2,14 @@ import { Module } from '@nestjs/common';
 // const config = require('config');
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Filter } from './filters/filter.model';
 import { UserFilters } from './filters/user-filters.model';
-import { User } from './users/user.model';
+import { Role } from './roles/roles.model';
+import { UserRoles } from './roles/user-roles.model';
+import { User } from './users/users.model';
 import { UsersModule } from './users/users.module';
 import { FiltersModule } from './filters/filters.module';
 import { RolesModule } from './roles/roles.module';
@@ -34,7 +37,7 @@ import { RolesModule } from './roles/roles.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Filter, UserFilters],
+      models: [User, Filter, UserFilters, Role, UserRoles],
       autoLoadModels: true,
     }),
     UsersModule,

@@ -18,7 +18,7 @@ async function start() {
   SwaggerModule.setup('/api/docs', app, swaggerDocument);
   await app.listen(
     PORT,
-    () => console.info(`🚀 App started on port: ${ PORT }`)
+    () => console.info(`🚀 🚀 🚀 Server started on port: ${ PORT }`)
   );
 }
 

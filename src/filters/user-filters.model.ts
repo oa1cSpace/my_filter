@@ -1,5 +1,5 @@
 import { Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
-import { User } from '../users/user.model';
+import { User } from '../users/users.model';
 import { Filter } from './filter.model';
 
 @Table({tableName: 'user_filters', createdAt: false, updatedAt: false})
