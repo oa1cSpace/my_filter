@@ -1,13 +1,34 @@
-version: "3"
+version: "3.0"
 services:
-  db:
-    image: "postgres:13"
-    container_name: "my_postgres"
+  main:
+    container_name: main
+    build:
+      context: .
+    env_file:
+      - .development.env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+      - 9229:9229
+    command: npm run start:dev
+    depends_on:
+      - postgress
+    restart: always
+  postgres:
+    container_name: postgres
+    image: postgres:13
+    env_file:
+      - .development.env
     environment:
+      PG_DATA: /var/lib/postgress/data
       POSTGRES_PASSWORD: "my_password"
     ports:
-      - "54320:5432"
+      - 5432:5432
     volumes:
-      - my_dbdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
 volumes:
-  my_dbdata:
+  pgdata:
