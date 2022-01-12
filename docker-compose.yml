@@ -23,9 +23,8 @@ services:
       - .development.env
     environment:
       PG_DATA: /var/lib/postgress/data
-      POSTGRES_PASSWORD: "my_password"
     ports:
-      - 5432:5432
+      - 54320:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
     restart: always

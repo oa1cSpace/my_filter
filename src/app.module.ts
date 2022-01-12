@@ -15,7 +15,7 @@ import { FiltersModule } from './filters/filters.module';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 
-// const HOST = config.get('postgres_host');
+// const POSTGRES_HOST = config.get('postgres_host');
 // const POSTGRES_PORT = config.get('postgres_port');
 // const POSTGRES_USER = config.get('postgres_user');
 // const POSTGRES_PASSWORD = config.get('postgres_password');
@@ -28,12 +28,12 @@ import { AuthModule } from './auth/auth.module';
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      // host: HOST,
+      // host: POSTGRES_HOST,
       // port: POSTGRES_PORT,
       // username: POSTGRES_USER,
       // password: POSTGRES_PASSWORD,
       // database: POSTGRES_DB,
-      host: process.env.HOST,
+      host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
