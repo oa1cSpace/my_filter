@@ -12,7 +12,7 @@ export class FiltersService {
     return await this.filterRepository.create(dto);
   }
 
-  async getFilerByType(type: string) {
+  async getFilterByType(type: string) {
     return await this.filterRepository.findOne({where: {type}});
   }
 }

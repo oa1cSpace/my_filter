@@ -16,6 +16,6 @@ export class FiltersController {
 
   @Get('/:type')
   getByType(@Param('type') type: string) {
-    return this.filterService.getFilerByType(type);
+    return this.filterService.getFilterByType(type);
   }
 }
