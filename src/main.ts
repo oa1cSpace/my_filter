@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { ValidationPipe } from './pipes/validation.pipe';
+// import { ValidationPipe } from './pipes/validation.pipe';
 // const config = require('config');
 
 // const PORT = config.get('port') || 5001;

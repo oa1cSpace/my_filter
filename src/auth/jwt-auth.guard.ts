@@ -17,7 +17,9 @@ export class JwtAuthGuard implements CanActivate {
       const token = authHeader.split(' ')[1];
 
       if (bearer !== 'Bearer' && !token) {
+        //TODO: 'throw' of exception caught locally
         throw new UnauthorizedException({ message: 'User unauthorized' });
+        // return Promise.reject(Error("User unauthorized"));
       }
 
       const user = this.jwrService.verify(token);

@@ -3,7 +3,7 @@ services:
   main:
     container_name: main
     build:
-      context: .
+      context: server
     env_file:
       - .development.env
     volumes:
